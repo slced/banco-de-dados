@@ -1,0 +1,20 @@
+<?php
+
+$conn = new PDO('mysql:dbname=aula_php;host=127.0.0.1','root','');
+
+
+$stmt = $conn->prepare('
+
+DELETE FROM produtos WHERE idProduto-:ID"
+
+);
+
+$id=22;
+
+$stmt->bindParam(":ID",$id);
+
+
+$stmt->execute();
+echo "Delete OK!";
+
+?>

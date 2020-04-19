@@ -1,0 +1,22 @@
+<?php
+
+$conn = new PDO('mysql:dbname=aula_php;host=127.0.0.1','root','');
+$stmt = $conn->prepare('
+UPDATE produtos
+SET produto = :PRODUTO, preco=:PRECO
+WHERE idProduto=:IDPRODUTO
+');
+
+$id=6;
+$produto = "TV SAMSUNG 4k";
+$preco = 7000;
+
+
+$stmt->bindParam(":PRODUTO",$produto);
+$stmt->bindParam(":PRECO",$preco);
+$stmt->bindParam(":IDPRODUTO",$id);
+
+$stmt->execute();
+echo "Dados alterados OK!";
+
+?>

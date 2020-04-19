@@ -1,0 +1,16 @@
+<?php
+
+$conn = new PDO('mysql:dbname=aula_php;host=127.0.0.1','root','');
+$stmt = $conn->prepare('SELECT = FROM produtos');
+$stmt->execute();
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+echo "<h1>Tabela Produtos</h1>";
+foreach ($results as $linha){
+foreach ($linha as $chave => $valor){
+echo $chave.":".$valor;
+echo '<br/>';
+}
+echo "=========================================== <br/>";
+}
+?>
